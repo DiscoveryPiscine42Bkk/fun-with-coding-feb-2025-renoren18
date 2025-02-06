@@ -1,11 +1,11 @@
 if [ $# -eq 0 ]; then
     echo "No arguments supplied"
+elif [ $# -le 3 ]; then
+    for arg in "$@"; do
+        echo "$arg"
+    done
 else
-    echo "$1"
-    if [ $# -ge 2 ]; then
-        echo "$2"
-    fi
-    if [ $# -ge 3 ]; then
-        echo "$3"
-    fi
+    for i in {1..3}; do
+        echo "${!i}"
+    done
 fi
