@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f7f654;
+        }
+        .calculator {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(26, 25, 25, 0.1);
+            display: flex;
+            align-items: center; 
+            gap: 20px;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #696565;
+            border-radius: 5px;
+            width: 150px; 
+        }
+        button {
+            color: rgb(108, 12, 242);
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #c3e9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <input id="leftMember" type="number" placeholder="Enter the left number" min="0">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input id="rightMember" type="number" placeholder="Enter the right number" min="0">
+    <button id="calculateButton">Try me!</button>
+</div>
+
+<script>
+    function calculate() {
+        const leftMember = parseInt(document.getElementById('leftMember').value);
+        const rightMember = parseInt(document.getElementById('rightMember').value);
+        const operator = document.getElementById('operator').value;
+
+        if (isNaN(leftMember) || isNaN(rightMember) || leftMember < 0 || rightMember < 0) {
+            alert('Error :(');
+            return;
+        }
+
+        if ((operator === '/' || operator === '%') && rightMember === 0) {
+            alert("It's over 9000!");
+            return;
+        }
+
+        let result;
+
+        switch (operator) {
+            case '+':
+                result = leftMember + rightMember;
+                break;
+            case '-':
+                result = leftMember - rightMember;
+                break;
+            case '*':
+                result = leftMember * rightMember;
+                break;
+            case '/':
+                result = leftMember / rightMember;
+                break;
+            case '%':
+                result = leftMember % rightMember;
+                break;
+        }
+
+        alert('Result: ' + result);
+        console.log('Result: ' + result);
+    }
+
+    document.getElementById('calculateButton').addEventListener('click', calculate);
+
+    setInterval(function() {
+        alert("Please, use me...");
+    }, 30000);
+</script>
+
+</body>
+</html>
+
+
