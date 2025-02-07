@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.hamburger-icon {
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed; 
+    background-color: black;
+    width: 100%;
+    color: white;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: #bcc4c4;
+    position: absolute;
+    top: 38px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#menu-toggle:checked + .hamburger-icon + .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    justify-content: space-around; 
+}
+
+.dropdown-menu li {
+    margin: 0 10px; 
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.dropdown-menu a:hover {
+    background-color: #575757;
+}
